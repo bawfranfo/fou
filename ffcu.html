@@ -3,437 +3,251 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>fouf'ffcu__ 🌐</title>
+<title>fouff9ffcu__ 🌐</title>
+
 <style>
-    :root {
-        --bg: #000000;
-        --blue: #2f6bff;
-        --red: #ff2a2a;
-        --panel: #0a0a0a;
-        --border: #1d3fa8;
-        --yellow: #ffd400;
-    }
+:root {
+    --bg: #000;
+    --blue: #2f6bff;
+    --red: #ff2a2a;
+    --yellow: #ffd400;
+    --panel: #0a0a0a;
+    --border: #1d3fa8;
+}
 
-    * {
-        box-sizing: border-box;
-    }
+body {
+    margin: 0;
+    padding: 30px;
+    background: var(--bg);
+    color: var(--blue);
+    font-family: Arial, sans-serif;
+}
 
-    body {
-        margin: 0;
-        padding: 32px 18px 60px;
-        background: var(--bg);
-        color: var(--blue);
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
+.wrap {
+    max-width: 900px;
+    margin: auto;
+}
 
-    .wrap {
-        max-width: 980px;
-        margin: 0 auto;
-    }
+/* TITLE */
 
-    .title {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        margin: 0 0 24px;
-        line-height: 1.05;
-    }
+.title {
+    font-size: 3rem;
+    margin-bottom: 25px;
+}
 
-    .blue {
-        color: var(--blue);
-    }
+.blue { color: var(--blue); }
 
-    .red-cursive {
-        color: var(--red);
-        font-family: "Brush Script MT", "Segoe Script", "Snell Roundhand", cursive;
-        font-weight: 700;
-        font-style: italic;
-    }
+.red { color: var(--red); }
 
-    .orb {
-        color: var(--yellow);
-        text-shadow:
-            0 0 2px #000,
-            0 0 8px #ffd40044,
-            0 0 16px #ffcc0066;
-        display: inline-block;
-        transform: translateY(2px);
-    }
+.red-cursive {
+    color: var(--red);
+    font-family: cursive;
+    font-style: italic;
+    font-weight: bold;
+}
 
-    .panel {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 20px;
-        margin-bottom: 18px;
-        box-shadow: 0 0 0 1px #081a4d inset;
-    }
+.orb {
+    color: var(--yellow);
+    text-shadow: 0 0 10px #ffd400;
+}
 
-    .panel h2 {
-        margin: 0 0 14px;
-        font-size: 1.1rem;
-        color: var(--blue);
-    }
+/* PANELS */
 
-    .row {
-        display: grid;
-        grid-template-columns: 220px 1fr;
-        gap: 12px;
-        align-items: center;
-        margin-bottom: 12px;
-    }
+.panel {
+    border: 1px solid var(--border);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background: var(--panel);
+}
 
-    .row.compact {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px 18px;
-        align-items: start;
-    }
+.row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
 
-    .stack {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+input, select {
+    background: #050505;
+    color: var(--blue);
+    border: 1px solid var(--border);
+    padding: 8px;
+    border-radius: 6px;
+}
 
-    label {
-        color: var(--blue);
-        font-size: 0.98rem;
-    }
+button {
+    padding: 10px 15px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #07163d;
+    color: var(--blue);
+    cursor: pointer;
+}
 
-    input[type="text"],
-    input[type="number"],
-    select,
-    input[type="file"] {
-        width: 100%;
-        background: #050505;
-        color: var(--blue);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 10px 12px;
-        outline: none;
-    }
+button:hover {
+    border-color: var(--red);
+    color: var(--red);
+}
 
-    input[type="checkbox"] {
-        transform: scale(1.15);
-        accent-color: var(--red);
-        margin-right: 8px;
-    }
+.status { margin-top: 10px; }
 
-    input:disabled,
-    select:disabled {
-        opacity: 0.45;
-        cursor: not-allowed;
-    }
-
-    .checkline {
-        display: flex;
-        align-items: center;
-        min-height: 40px;
-    }
-
-    .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 10px;
-    }
-
-    button {
-        background: #07163d;
-        color: var(--blue);
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        padding: 11px 18px;
-        font-size: 0.98rem;
-        cursor: pointer;
-    }
-
-    button:hover {
-        border-color: var(--red);
-        color: var(--red);
-    }
-
-    .status,
-    .download {
-        margin-top: 16px;
-        font-size: 0.96rem;
-        word-break: break-word;
-    }
-
-    .download a {
-        color: var(--yellow);
-        text-decoration: none;
-        border-bottom: 1px dotted var(--yellow);
-    }
-
-    .hint {
-        font-size: 0.85rem;
-        opacity: 0.85;
-    }
-
-    pre {
-        margin: 0;
-        white-space: pre-wrap;
-        word-break: break-word;
-        color: var(--blue);
-        font-family: Menlo, Monaco, Consolas, monospace;
-        font-size: 0.86rem;
-    }
-
-    @media (max-width: 760px) {
-        .row {
-            grid-template-columns: 1fr;
-        }
-
-        .row.compact {
-            grid-template-columns: 1fr;
-        }
-    }
+.download a {
+    color: var(--yellow);
+}
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
 
-    <h1 class="title">
-        <span class="blue">fouf</span><span class="blue">i</span><span class="red-cursive">i</span><span class="blue">f'ff</span><span class="red-cursive">fcu</span><span class="blue">__ </span><span class="orb">🌐</span>
-    </h1>
+<!-- TITLE -->
+<h1 class="title">
+    <span class="blue">fouf</span>
+    <span class="red">f9</span>
+    <span class="blue">f</span>
+    <span class="red-cursive">fcu</span>
+    <span class="blue">__ </span>
+    <span class="orb">🌐</span>
+</h1>
 
-    <div class="panel">
-        <h2>upload</h2>
+<!-- UPLOAD -->
+<div class="panel">
+    <h3>upload</h3>
+    <input id="files" type="file" multiple accept=".wav,.mp3" />
+</div>
 
-        <div class="row">
-            <label for="files">audio files</label>
-            <input id="files" type="file" multiple accept=".wav,.mp3,audio/wav,audio/mpeg" />
-        </div>
+<!-- CONFIG -->
+<div class="panel">
+    <h3>config</h3>
 
-        <div class="hint">multiple files allowed. output becomes a zip only when more than one processed file is returned.</div>
+    <div class="row">
+        <label>output</label>
+        <select id="outputType">
+            <option>wav</option>
+            <option>mp3</option>
+        </select>
     </div>
 
-    <div class="panel">
-        <h2>config</h2>
-
-        <div class="row">
-            <label for="outputType">output type</label>
-            <select id="outputType">
-                <option value="wav" selected>wav</option>
-                <option value="mp3">mp3</option>
-            </select>
-        </div>
-
-        <div class="row">
-            <label for="threshold">threshold</label>
-            <input id="threshold" type="number" step="0.00001" value="0.0003" />
-        </div>
-
-        <div class="row">
-            <label for="noiseLevel">noise level</label>
-            <input id="noiseLevel" type="number" step="0.0000001" value="0.000001" />
-        </div>
-
-        <div class="row">
-            <label for="fadeSamples">fade samples</label>
-            <input id="fadeSamples" type="number" step="1" value="256" />
-        </div>
-
-        <div class="row compact">
-            <div class="stack">
-                <label class="checkline"><input id="includeBPM" type="checkbox" />include bpm</label>
-                <label class="checkline"><input id="autoDetectBPM" type="checkbox" />auto detect bpm</label>
-            </div>
-            <div class="stack">
-                <label for="manualBPM">manual bpm</label>
-                <input id="manualBPM" type="text" placeholder="128" />
-            </div>
-        </div>
-
-        <div class="row compact">
-            <div class="stack">
-                <label class="checkline"><input id="includeKey" type="checkbox" />include key</label>
-                <label class="checkline"><input id="autoDetectKey" type="checkbox" />auto detect key</label>
-            </div>
-            <div class="stack">
-                <label for="manualKey">manual key</label>
-                <input id="manualKey" type="text" placeholder="Am" />
-            </div>
-        </div>
-
-        <div class="row compact">
-            <div class="stack">
-                <label class="checkline"><input id="includeBars" type="checkbox" />include bars</label>
-                <label class="checkline"><input id="autoDetectBars" type="checkbox" />auto detect bars</label>
-            </div>
-            <div class="stack">
-                <label for="manualBars">manual bars</label>
-                <input id="manualBars" type="text" placeholder="4" />
-            </div>
-        </div>
+    <div class="row">
+        <label>threshold</label>
+        <input id="threshold" type="number" value="0.0003" step="0.00001">
     </div>
 
-    <div class="panel">
-        <h2>run</h2>
-        <div class="actions">
-            <button id="processBtn">upload and process</button>
-        </div>
-        <div class="status" id="status">idle.</div>
-        <div class="download" id="download"></div>
+    <div class="row">
+        <label>noise</label>
+        <input id="noiseLevel" type="number" value="0.000001" step="0.0000001">
     </div>
 
-    <div class="panel">
-        <h2>debug</h2>
-        <pre id="debugOut">waiting.</pre>
+    <!-- BPM -->
+    <div class="row">
+        <label><input type="checkbox" id="includeBPM"> include bpm</label>
+        <label><input type="checkbox" id="autoBPM"> auto bpm</label>
     </div>
+
+    <div class="row">
+        <label>manual bpm</label>
+        <input id="manualBPM" placeholder="128">
+    </div>
+
+    <!-- KEY -->
+    <div class="row">
+        <label><input type="checkbox" id="includeKey"> include key</label>
+        <label><input type="checkbox" id="autoKey"> auto key</label>
+    </div>
+
+    <div class="row">
+        <label>manual key</label>
+        <input id="manualKey" placeholder="Am">
+    </div>
+
+    <!-- BARS -->
+    <div class="row">
+        <label><input type="checkbox" id="includeBars"> include bars</label>
+        <label><input type="checkbox" id="autoBars"> auto bars</label>
+    </div>
+
+    <div class="row">
+        <label>manual bars</label>
+        <input id="manualBars" placeholder="4">
+    </div>
+
+</div>
+
+<!-- RUN -->
+<div class="panel">
+    <button onclick="run()">process</button>
+    <div class="status" id="status">idle</div>
+    <div class="download" id="download"></div>
+</div>
+
 </div>
 
 <script>
-const filesInput = document.getElementById("files");
 
-const includeBPM = document.getElementById("includeBPM");
-const autoDetectBPM = document.getElementById("autoDetectBPM");
-const manualBPM = document.getElementById("manualBPM");
+const API = "https://YOUR_API_ID.execute-api.ap-southeast-2.amazonaws.com";
 
-const includeKey = document.getElementById("includeKey");
-const autoDetectKey = document.getElementById("autoDetectKey");
-const manualKey = document.getElementById("manualKey");
+async function run() {
+    const files = document.getElementById("files").files;
+    if (!files.length) return;
 
-const includeBars = document.getElementById("includeBars");
-const autoDetectBars = document.getElementById("autoDetectBars");
-const manualBars = document.getElementById("manualBars");
-
-const processBtn = document.getElementById("processBtn");
-const statusEl = document.getElementById("status");
-const downloadEl = document.getElementById("download");
-const debugOut = document.getElementById("debugOut");
-
-const API_BASE = "https://YOUR_API_ID.execute-api.ap-southeast-2.amazonaws.com"; // replace
-
-function syncUI() {
-    const multi = filesInput.files.length > 1;
-
-    autoDetectBPM.disabled = !includeBPM.checked;
-    manualBPM.disabled = !includeBPM.checked || autoDetectBPM.checked || multi;
-
-    autoDetectKey.disabled = !includeKey.checked;
-    manualKey.disabled = !includeKey.checked || autoDetectKey.checked;
-
-    autoDetectBars.disabled = !includeBars.checked;
-    manualBars.disabled = !includeBars.checked || autoDetectBars.checked;
-}
-
-function readConfig() {
-    return {
-        outputType: document.getElementById("outputType").value,
-        includeBPM: includeBPM.checked,
-        autoDetectBPM: autoDetectBPM.checked,
-        manualBPM: manualBPM.value.trim(),
-        includeKey: includeKey.checked,
-        autoDetectKey: autoDetectKey.checked,
-        manualKey: manualKey.value.trim(),
-        includeBars: includeBars.checked,
-        autoDetectBars: autoDetectBars.checked,
-        manualBars: manualBars.value.trim(),
-        threshold: Number(document.getElementById("threshold").value),
-        noiseLevel: Number(document.getElementById("noiseLevel").value),
-        fadeSamples: Number(document.getElementById("fadeSamples").value)
-    };
-}
-
-async function uploadAndProcess() {
-    const files = Array.from(filesInput.files || []);
-    if (!files.length) {
-        statusEl.textContent = "select at least one audio file.";
-        return;
-    }
-
-    downloadEl.innerHTML = "";
-    statusEl.textContent = "initialising upload...";
-    debugOut.textContent = "preparing request...";
-
-    const config = readConfig();
-
-    const initPayload = {
-        files: files.map(file => ({
-            name: file.name,
-            type: file.type || "application/octet-stream"
-        })),
-        config
+    const config = {
+        outputType: val("outputType"),
+        includeBPM: chk("includeBPM"),
+        autoDetectBPM: chk("autoBPM"),
+        manualBPM: val("manualBPM"),
+        includeKey: chk("includeKey"),
+        autoDetectKey: chk("autoKey"),
+        manualKey: val("manualKey"),
+        includeBars: chk("includeBars"),
+        autoDetectBars: chk("autoBars"),
+        manualBars: val("manualBars"),
+        threshold: Number(val("threshold")),
+        noiseLevel: Number(val("noiseLevel"))
     };
 
-    try {
-        const initRes = await fetch(`${API_BASE}/upload-init`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(initPayload)
-        });
+    setStatus("init upload...");
 
-        if (!initRes.ok) {
-            throw new Error(`upload-init failed (${initRes.status})`);
-        }
-
-        const initData = await initRes.json();
-        debugOut.textContent = JSON.stringify(initData, null, 2);
-
-        statusEl.textContent = "uploading files...";
-
-        for (const upload of initData.uploads) {
-            const file = files.find(f => f.name === upload.name);
-            if (!file) continue;
-
-            const putRes = await fetch(upload.url, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": file.type || "application/octet-stream"
-                },
-                body: file
-            });
-
-            if (!putRes.ok) {
-                throw new Error(`upload failed for ${upload.name}`);
-            }
-        }
-
-        statusEl.textContent = "processing...";
-        const processPayload = {
-            jobId: initData.jobId,
-            inputKeys: initData.uploads.map(u => u.key),
+    const init = await fetch(API + "/upload-init", {
+        method: "POST",
+        body: JSON.stringify({
+            files: [...files].map(f => ({name: f.name, type: f.type})),
             config
-        };
+        })
+    }).then(r => r.json());
 
-        const processRes = await fetch(`${API_BASE}/process`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(processPayload)
+    setStatus("uploading...");
+
+    for (let i = 0; i < init.uploads.length; i++) {
+        await fetch(init.uploads[i].url, {
+            method: "PUT",
+            body: files[i]
         });
-
-        if (!processRes.ok) {
-            throw new Error(`process failed (${processRes.status})`);
-        }
-
-        const processData = await processRes.json();
-        debugOut.textContent = JSON.stringify(processData, null, 2);
-
-        statusEl.textContent = "done.";
-
-        downloadEl.innerHTML = `
-            <a href="${processData.downloadUrl}" download="${processData.filename}">
-                download ${processData.filename}
-            </a>
-        `;
-    } catch (err) {
-        statusEl.textContent = `error: ${err.message}`;
-        debugOut.textContent = String(err.stack || err);
     }
+
+    setStatus("processing...");
+
+    const result = await fetch(API + "/process", {
+        method: "POST",
+        body: JSON.stringify({
+            jobId: init.jobId,
+            inputKeys: init.uploads.map(u => u.key),
+            config
+        })
+    }).then(r => r.json());
+
+    setStatus("done");
+
+    document.getElementById("download").innerHTML =
+        `<a href="${result.downloadUrl}">download ${result.filename}</a>`;
 }
 
-filesInput.addEventListener("change", syncUI);
-includeBPM.addEventListener("change", syncUI);
-autoDetectBPM.addEventListener("change", syncUI);
-includeKey.addEventListener("change", syncUI);
-autoDetectKey.addEventListener("change", syncUI);
-includeBars.addEventListener("change", syncUI);
-autoDetectBars.addEventListener("change", syncUI);
-processBtn.addEventListener("click", uploadAndProcess);
+function val(id){ return document.getElementById(id).value }
+function chk(id){ return document.getElementById(id).checked }
+function setStatus(s){ document.getElementById("status").innerText = s }
 
-syncUI();
 </script>
+
 </body>
 </html>
